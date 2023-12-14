@@ -1,5 +1,7 @@
 package com.transaction.product;
 
+import com.transaction.product.bin.TripleDESEncryption;
+
 import com.transaction.product.process.service.MerchantService;
 import com.transaction.product.process.service.TransactionService;
 import lombok.RequiredArgsConstructor;
@@ -15,12 +17,12 @@ public class DriverApplication implements CommandLineRunner {
     private final MerchantService merchantService;
     private final TransactionService transactionService;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         SpringApplication.run(DriverApplication.class, args);
     }
 
     @Override
-    public void run(String... args) {
+    public void run(String... args) throws Exception {
         System.out.println("\n\nSpringboot Application Starting....");
     }
 

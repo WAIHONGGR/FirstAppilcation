@@ -46,6 +46,13 @@
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
 
+        <!-- PDF -->
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>2.0.24</version> <!-- Replace with the latest version -->
+        </dependency>
+
         <!-- JWT (JSON Web Token) Support -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>

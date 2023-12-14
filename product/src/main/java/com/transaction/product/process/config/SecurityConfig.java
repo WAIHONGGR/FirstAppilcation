@@ -22,6 +22,8 @@ public class SecurityConfig {
                         .equals(request.getServletPath())).hasRole("MERCHANT")
                 .requestMatchers(request -> "/api/transaction/**"
                         .equals(request.getServletPath())).hasRole("TRANSACTION")
+                .requestMatchers(request -> "/pdf/**"
+                        .equals(request.getServletPath())).hasRole("PDF")
                 .anyRequest().authenticated()
                 .and()
                 .csrf().disable(); // Disable CSRF for simplicity (enable it in production)
@@ -43,7 +45,13 @@ public class SecurityConfig {
                 .roles("MERCHANT")
                 .build();
 
-        return new InMemoryUserDetailsManager(adminUser, merchantUser);
+        UserDetails pdfUser = User.builder()
+                .username("pdf")
+                .password(passwordEncoder().encode("password"))
+                .roles("PDF")
+                .build();
+
+        return new InMemoryUserDetailsManager(adminUser, merchantUser,pdfUser);
     }
 
     @Bean

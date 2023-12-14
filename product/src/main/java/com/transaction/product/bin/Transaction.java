@@ -39,11 +39,11 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return "\n" + LocalDateTime.now()
-                + " [Txn ID] : " + id
-                + " [Card Type] : " + cardType
-                + " [Amount] : " + amount
-                + " [Charge] : " + charge
-                + " [MID] : " + merchant.getId();
+        return "[Date&Time]:" + LocalDateTime.now()
+                + "[Txn ID]:" + id
+                + "[Card Type]:" + cardType
+                + "[Amount]:" + amount
+                + "[Charge]:" + charge
+                + "[MID]:" + merchant.getId() + "\n";
     }
 }
